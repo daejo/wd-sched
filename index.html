@@ -18,21 +18,51 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+    <header class="jumbotron bg-primary">
+      <h1 class="display-2 bg-warning text-primary rounded-pill">WD-SCHED2020</h1>
+      <br/>
+      <p class="lead text-white">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead text-white"></p>
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
+      <div class="row h-auto">
+        <div class="col-sm-2 bg-light border border-light text-muted text-center">
+          <p>8:00 am</p>
+        </div>
+        <div class="col-sm-9 bg-warning border border-light text-black">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis perferendis explicabo recusandae! Ipsam in ullam excepturi omnis consequuntur praesentium? Adipisci odit dicta nobis nisi eius fugit suscipit similique placeat molestias molestiae. Molestiae error accusantium possimus fugit ab nihil ipsa, quibusdam maiores perspiciatis delectus aliquam corporis consequuntur quod, soluta doloribus?</p>
+        </div>
+        <div class="col-sm-1 bg-primary border border-light rounded-right text-white">
+          <p class="">Save</p>
+        </div>
+      </div>
+
+      <div class="row h-auto">
+        <div class="col-sm-2 bg-light border shadow-lg text-muted text-center">
+          <p>9:00 am</p>
+        </div>
+        <div class="col-sm-9 bg-warning border border-light text-black">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis perferendis explicabo recusandae! Ipsam in ullam excepturi omnis consequuntur praesentium? Adipisci odit dicta nobis nisi eius fugit suscipit similique placeat molestias molestiae. Molestiae error accusantium possimus fugit ab nihil ipsa, quibusdam maiores perspiciatis delectus aliquam corporis consequuntur quod, soluta doloribus?</p>
+        </div>
+        <div class="col-sm-1 bg-primary border border-light rounded-right text-white">
+          <p>Save</p>
+        </div>
+      </div>
+
+      
+
     </div>
 
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
