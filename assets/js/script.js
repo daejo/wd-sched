@@ -1,3 +1,4 @@
+/* DYNAMIC JAVA SCRIPT */
 var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17]; //Array Timeblocks from 9a.m to 5p.m.
 
 var currentHour = moment().hour(); //Hour timer.
@@ -30,16 +31,16 @@ function displayHour() { //Creates boxes
        
         /* TEXT AREA BOX COLOR CHANGE */
         if(currentHour > workHours[i]) {
-            textarea.addClass("bg-warning");
+            textarea.addClass("bg-warning readonly");
         } else if(currentHour === workHours[i]) {
             textarea.addClass("bg-danger text-white");
         } else if(currentHour < workHours[i]) {
-            textarea.addClass("bg-success");
+            textarea.addClass("bg-success text-white");
         }
 
-        /* GET LOCAL STORAGE */ 
+        /* LOAD LOCAL STORAGE */ 
         // var getText = localStorage.getItem("textarea" + i);
-        var getText = JSON.parse(localStorage.getItem("textarea + i"));
+        var getText = JSON.parse(localStorage.getItem("textarea" + i));
         textarea.text(getText);
         col2.append(textarea) //Creates task textbox column.
 
@@ -54,8 +55,8 @@ function displayHour() { //Creates boxes
         row.append(col1, col2, col3)
         $("#planner").append(row) //Creates rows.
 
+        /* SAVE TO LOCAL STORAGE */
         $(".saveButton").on("click", function() {
-            event.preventDefault();
             var setText = localStorage.setItem("textarea" + i, JSON.stringify(textarea));
             // var setText = localStorage.setItem("textarea" + i);
                 textarea.text(setText);
