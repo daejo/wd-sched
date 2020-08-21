@@ -1,6 +1,6 @@
-var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17]; //Timeblocks from 9a.m to 5p.m.
+var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17]; //Array Timeblocks from 9a.m to 5p.m.
 
-var currentHour = moment().hour(); //Actual time.
+var currentHour = moment().hour(); //Hour timer.
 
 setInterval(() => { //Day, date, time display.
     var nowReadable = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');;
@@ -23,53 +23,46 @@ function displayHour() { //Creates boxes
 
         col1.append(getWorkHour); //Creates time of day column.
 
+        /* TEXT AREA */
         var col2 = $("<div class ='col-sm-10'>"); 
-
         var textarea = $("<textarea class ='form-control text-black'>");
         textarea.attr("id", "textarea" + i);
        
-
+        /* TEXT AREA BOX COLOR CHANGE */
         if(currentHour > workHours[i]) {
             textarea.addClass("bg-warning");
-        }
-
-        if(currentHour === workHours[i]) {
+        } else if(currentHour === workHours[i]) {
             textarea.addClass("bg-danger text-white");
-        }
-
-        if(currentHour < workHours[i]) {
+        } else if(currentHour < workHours[i]) {
             textarea.addClass("bg-success");
         }
 
         /* GET LOCAL STORAGE */ 
-        var getText = localStorage.getItem("textarea" + i);
-
+        // var getText = localStorage.getItem("textarea" + i);
+        var getText = JSON.parse(localStorage.getItem("textarea + i"));
         textarea.text(getText);
-
         col2.append(textarea) //Creates task textbox column.
 
-        var col3 = $("<div class = 'col-sm-1'>");
-
         /* BUTTONS */
+        var col3 = $("<div class = 'col-sm-1'>");
         var button = $("<button>");
-
         button.addClass("saveButton bg-primary text-white rounded-pill");
-
         button.text("Save");
-
         col3.append(button); // Creates Buttons column.
 
         /* ROWS */
         row.append(col1, col2, col3)
         $("#planner").append(row) //Creates rows.
+
+        $(".saveButton").on("click", function() {
+            event.preventDefault();
+            var setText = localStorage.setItem("textarea" + i, JSON.stringify(textarea));
+            // var setText = localStorage.setItem("textarea" + i);
+                textarea.text(setText);
+        })
     }
 }
 
-
-
 displayHour();
 
-$(".saveButton").on("click", function() {
-    var setText = localStorage.setItem("textarea" + i);
-        textarea.text(setText);
-})
+
