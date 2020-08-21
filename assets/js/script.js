@@ -11,7 +11,7 @@ function displayHour() { //Creates boxes
     for (let i = 0; i < workHours.length; i++) { //Standard for loop.
 
         var row = $("<div class= 'row'>"); // dynamic HTML
-        var col1 = $("<div class = 'col-sm-2 text-right'>"); //move the text to the right label
+        var col1 = $("<div class = 'col-sm-1 text-right'>"); //move the text to the right label
 
         var getWorkHour = workHours[i] + " P.M." //Adds p.m. to 12
 
@@ -23,14 +23,14 @@ function displayHour() { //Creates boxes
 
         col1.append(getWorkHour); //Creates time of day column.
 
-        var col2 = $("<div class ='col-sm-8'>"); //Creates task textbox column.
+        var col2 = $("<div class ='col-sm-10'>"); //Creates task textbox column.
 
-        var textarea = $("<textarea class ='form-control bg-warning text-black'>");
+        var textarea = $("<textarea class ='form-control text-black'>");
         textarea.attr("id", "textarea" + i);
        
 
         if(currentHour > workHours[i]) {
-            textarea.addClass("bg-secondary");
+            textarea.addClass("bg-warning");
         }
 
         if(currentHour === workHours[i]) {
@@ -48,11 +48,11 @@ function displayHour() { //Creates boxes
 
         col2.append(textarea)
 
-        var col3 = $("<div class = col'col-sm-2>");
+        var col3 = $("<div class = 'col-sm-1 bg-info rounded-right'>");
 
         var button = $("<button>");
 
-        button.addClass("saveButton");
+        button.addClass("saveButton bg-info");
 
         button.text("Save");
 
