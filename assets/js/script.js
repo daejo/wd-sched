@@ -7,8 +7,6 @@
 
 setInterval(() => {
     var nowReadable = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');;
-    console.log(nowReadable);
     currentDay.textContent = nowReadable;
 },1000);
-
 

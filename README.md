@@ -13,7 +13,7 @@ A website where you can add important events to a daily planner so you can manag
 
 
 ## Website
-https://daejo.github.io/code-quiz/
+https://daejo.github.io/wd-sched/
 
 ## Contribution
 Created by David Joaquin
