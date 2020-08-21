@@ -2,7 +2,7 @@ var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17]; //Timeblocks from 9a.m to 5
 
 var currentHour = moment().hour(); //Actual time.
 
-setInterval(() => { //Day
+setInterval(() => { //Day, date, time display.
     var nowReadable = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');;
     currentDay.textContent = nowReadable;
 },1000);
@@ -11,7 +11,7 @@ function displayHour() { //Creates boxes
     for (let i = 0; i < workHours.length; i++) { //Standard for loop.
 
         var row = $("<div class= 'row'>"); // dynamic HTML
-        var col1 = $("<div class = 'h-25  col-sm-1 text-right shadow-lg bg-light rounded'>"); //move the text to the right label
+        var col1 = $("<div class = 'h-25  col-sm-1 text-right shadow-lg bg-light rounded'>"); //Moves the text to the right label
 
         var getWorkHour = workHours[i] + " P.M." //Adds p.m. to 12
 
@@ -34,14 +34,14 @@ function displayHour() { //Creates boxes
         }
 
         if(currentHour === workHours[i]) {
-            textarea.addClass("bg-danger");
+            textarea.addClass("bg-danger text-white");
         }
 
         if(currentHour < workHours[i]) {
             textarea.addClass("bg-success");
         }
 
-        //local storage
+        /* GET LOCAL STORAGE */ 
         var getText = localStorage.getItem("textarea" + i);
 
         textarea.text(getText);
@@ -50,19 +50,18 @@ function displayHour() { //Creates boxes
 
         var col3 = $("<div class = 'col-sm-1'>");
 
+        /* BUTTONS */
         var button = $("<button>");
 
         button.addClass("saveButton bg-primary text-white rounded-pill");
 
         button.text("Save");
 
-        col3.append(button);
+        col3.append(button); // Creates Buttons column.
 
-
-
-
+        /* ROWS */
         row.append(col1, col2, col3)
-        $("#planner").append(row)
+        $("#planner").append(row) //Creates rows.
     }
 }
 
@@ -71,5 +70,6 @@ function displayHour() { //Creates boxes
 displayHour();
 
 $(".saveButton").on("click", function() {
-
+    var setText = localStorage.setItem("textarea" + i);
+        textarea.text(setText);
 })
