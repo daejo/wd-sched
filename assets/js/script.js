@@ -59,7 +59,7 @@ function displayHour() { //Creates boxes
         $(".saveButton").on("click", function() {
             var setText = localStorage.setItem("textarea" + i, JSON.stringify(textarea));
             // var setText = localStorage.setItem("textarea" + i);
-                textarea.text(setText);
+            textarea.text(setText);
         })
     }
 }
