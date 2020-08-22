@@ -25,16 +25,16 @@ function displayHour() { //Creates boxes
         col1.append(getWorkHour); //Creates time of day column.
 
         /* TEXT AREA */
-        var col2 = $("<div class ='col-sm-10'>"); 
-        var textarea = $("<textarea class ='form-control text-black'>");
+        var col2 = $("<div class ='col-sm-10'>"); //Creates container for text area.
+        var textarea = $("<textarea class ='form-control text-black'>"); //Makes block editable with text input.
         textarea.attr("id", "textarea" + i);
        
         /* TEXT AREA BOX COLOR CHANGE */
-        if(currentHour > workHours[i]) {
+        if(currentHour > workHours[i]) { //When its past due.
             textarea.addClass("bg-warning readonly");
-        } else if(currentHour === workHours[i]) {
+        } else if(currentHour === workHours[i]) { //When its on that hour.
             textarea.addClass("bg-danger text-white");
-        } else if(currentHour < workHours[i]) {
+        } else if(currentHour < workHours[i]) { //When its still on time.
             textarea.addClass("bg-success text-white");
         }
 
@@ -45,14 +45,14 @@ function displayHour() { //Creates boxes
         col2.append(textarea) //Creates task textbox column.
 
         /* BUTTONS */
-        var col3 = $("<div class = 'col-sm-1'>");
+        var col3 = $("<div class = 'col-sm-1'>"); //Creates button column container.
         var button = $("<button>");
-        button.addClass("saveButton bg-primary text-white rounded-pill");
+        button.addClass("saveButton bg-primary text-white rounded-pill"); //Save button shape.
         button.text("Save");
         col3.append(button); // Creates Buttons column.
 
         /* ROWS */
-        row.append(col1, col2, col3)
+        row.append(col1, col2, col3) //Consolidates all columns to each rows.
         $("#planner").append(row) //Creates rows.
 
         /* SAVE TO LOCAL STORAGE */
