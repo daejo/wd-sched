@@ -39,8 +39,8 @@ function displayHour() { //Creates boxes
         }
 
         /* LOAD LOCAL STORAGE */ 
-        // var getText = localStorage.getItem("textarea" + i);
-        var getText = JSON.parse(localStorage.getItem("textarea" + i));
+        var txt = $("#textarea" + i).val(); 
+        var getText = localStorage.getItem("textarea" + i, txt);
         textarea.text(getText);
         col2.append(textarea) //Creates task textbox column.
 
@@ -57,10 +57,10 @@ function displayHour() { //Creates boxes
 
         /* SAVE TO LOCAL STORAGE */
         $(".saveButton").on("click", function() {
-            var setText = localStorage.setItem("textarea" + i, JSON.stringify(textarea));
-            // var setText = localStorage.setItem("textarea" + i);
+            var txt = $("#textarea" + i).val(); 
+            var setText = localStorage.setItem("textarea" + i, txt);
             textarea.text(setText);
-        })
+        });
     }
 }
 
